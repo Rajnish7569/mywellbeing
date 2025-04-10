@@ -37,14 +37,14 @@ def analyze_and_recommend(input_text: TextInput):
         "recommendation": recommendation
     }
 
-# # Hide the old routes so they don't show separately in Swagger
-# @app.post("/analyze-emotion", include_in_schema=False)
-# def analyze_emotion(input_text: TextInput):
-#     return analyze_and_recommend(input_text)
+# Hide the old routes so they don't show separately in Swagger
+@app.post("/analyze-emotion", include_in_schema=False)
+def analyze_emotion(input_text: TextInput):
+    return analyze_and_recommend(input_text)
 
-# @app.post("/ai/recommendation", include_in_schema=False)
-# def get_recommendation(input_text: TextInput):
-#     return analyze_and_recommend(input_text)
+@app.post("/ai/recommendation", include_in_schema=False)
+def get_recommendation(input_text: TextInput):
+    return analyze_and_recommend(input_text)
 
 if __name__ == "__main__":
     import uvicorn
